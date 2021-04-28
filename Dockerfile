@@ -1,10 +1,7 @@
-#FROM jboss/wildfly
-FROM jboss/wildfly:18.0.1.Final
-
-ENV WILDFLY /opt/jboss/wildfly
-
-ADD target/insecure-bank.war /opt/jboss/wildfly/standalone/deployments/
+FROM tomcat:latest
+# Add seeker agent
+# ADD seeker-agent.jar /usr/local/tomcat/lib
+COPY *.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
-
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
+CMD ["catalina.sh", "run"]
