@@ -1,0 +1,11 @@
+template: high-risk
+application:
+  projectLanguage: Java  
+  platformVersion: Java 8  
+  buildSystem: Maven   
+environment:
+  jiraProjectName: DMZ
+  testDeploymentRoot: insecure-bank  
+security:
+  pipeline:
+    toolchain: "Synopsys"
