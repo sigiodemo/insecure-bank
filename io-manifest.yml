@@ -8,8 +8,8 @@ application:
   platformVersion: Java 8  # default for language + build template
   buildSystem: Maven   # default for language + build template
   riskMatrixRevision: high-risk 
-  sourceFilePattern: .*\\+\\+\\+.*(\\.java|\\.jsp)+.*
-  sensitivePackagePattern: .*(\\+\\+\\+.*(com\\/synopsys\\/app)).*
+  sourceFilePattern: ".*\\+\\+\\+.*(\\.java|\\.jsp)+.*"
+  sensitivePackagePattern: ".*(\\+\\+\\+.*(com\\/synopsys\\/app)).*"
   fileChangeThreshold: 10
 environment:
   scm:  github 
