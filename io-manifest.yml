@@ -25,6 +25,7 @@ environment:
 security:
   pipeline:
     toolchain: "Synopsys"
+    runSonar: false
   activities:
     sast:
       enabled: false
