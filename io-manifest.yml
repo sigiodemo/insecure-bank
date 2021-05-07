@@ -78,7 +78,7 @@ tool_information:
   fields:
     file_path:  FILE_PATH 
 - tool_name: polaris
-  enabled:  <<IS_SAST_ENABLED>> 
+  enabled:  true 
   fields:
     project_name:  POLARIS_PROJECT_NAME 
     instance_url:  POLARIS_SERVER_URL 
