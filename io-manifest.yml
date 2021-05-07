@@ -77,12 +77,12 @@ tool_information:
   enabled:  false 
   fields:
     file_path:  FILE_PATH 
-#- tool_name: polaris
-#  enabled:  IS_SAST_ENABLED 
-#  fields:
-#    project_name:  POLARIS_PROJECT_NAME 
-#    instance_url:  POLARIS_SERVER_URL 
-#    auth_token:  POLARIS_ACCESS_TOKEN 
+- tool_name: polaris
+  enabled:  <<IS_SAST_ENABLED>> 
+  fields:
+    project_name:  POLARIS_PROJECT_NAME 
+    instance_url:  POLARIS_SERVER_URL 
+    auth_token:  POLARIS_ACCESS_TOKEN 
 - tool_name: blackduck
   enabled:  false 
   fields:
