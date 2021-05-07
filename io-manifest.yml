@@ -84,7 +84,7 @@ tool_information:
     instance_url:  POLARIS_SERVER_URL 
     auth_token:  POLARIS_ACCESS_TOKEN 
 - tool_name: blackduck
-  enabled:  false 
+  enabled:  true 
   fields:
     project_name:  BLACKDUCK_PROJECT_NAME 
     instance_url:  BLACKDUCK_SERVER_URL 
