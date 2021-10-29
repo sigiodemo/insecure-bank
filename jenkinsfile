@@ -1,3 +1,0 @@
-@Library('io-library')
-import com.demo.*
-new pipeline.EntryPoint().execute('io-manifest.yml')
