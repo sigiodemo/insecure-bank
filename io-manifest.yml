@@ -1,91 +1,69 @@
+template: high-risk 
+
 application:
-  appId: insecure-bank
-  assetId: insecure-bank
-  appType: Webapp # or webservice or microservice or backend
-  appName: insecure-bank # can be removed to use assetId for project names
-  microservice: false #default set to false; unused
-  projectLanguage: Java  #default for language + build template
-  platformVersion: Java 8  # default for language + build template
-  buildSystem: Maven   # default for language + build template
-  riskMatrixRevision: high-risk 
-  sourceFilePattern: ".*\\+\\+\\+.*(\\.java|\\.jsp)+.*"
-  sensitivePackagePattern: ".*(\\+\\+\\+.*(com\\/synopsys\\/app)).*"
+  appName: insecure-bank
+  projectLanguage: Java
+  platformVersion: Java 8
+  buildSystem: Maven
+  riskMatrixRevision: default
+  sourceFilePattern: .*\+\+\+.*(\.java|\.jsp)+.*
+  sensitivePackagePattern: (?s).*((/[a-z]+)*)/com/service/([A-Za-z]*).java(?s).*
   fileChangeThreshold: 10
+
 environment:
-  scm:  github 
-  scmOwner:  sigiodemo 
-  scmRepositoryName:  insecure-bank 
-  scmBranchName:  main 
-  githubApiUrl: https://api.github.com/repos/
-  jiraProjectName:  DMZ 
-  jiraIssuesQuery:  resolution=Unresolved AND labels in (Security, Defect) 
-  jiraApiUrl:  JIRA_API_URL 
-  jiraUserName:  JIRA_USERNAME 
-  jiraAuthToken:  JIRA_AUTH_TOKEN 
+  scm: github
+  scmOwner: sigiodemo
+  scmRepositoryName: sigiodemo/insecure-bank
+  scmBranchName: main
+  githubApiUrl: https://api.github.com/repos
+  githubUsername: <<GITHUB_USERNAME>>
+  githubToken: <<GITHUB_TOKEN>>
+#  enableJira: true
+#  jiraProjectName: IODEMO
+#  jiraIssuesQuery: project=IODEMO
+#  testDeploymentRoot: /
+
 security:
   pipeline:
+    type: "Inline"
     toolchain: "Synopsys"
-    runSonar: false
-  activities:
-    sast:
-      enabled: false
-      rescanThreshold: 10
-    sca:
-      enabled: false
-      rescanThreshold: 10
-    dast:
-      enabled: false
-      rescanThreshold: 20
-    sastplusm:
-      rescanThreshold: 30
-    dastplusm:
-      rescanThreshold: 30
-    imageScan:
-      rescanThreshold: 10
-connectors:
-- connector_name: jira
-  fields:
-    issuetype: Bug
-    projectkey:  DMZ 
-    assignee:  JIRA_ASSIGNEE 
-    url:  JIRA_SERVER_URL 
-    username:  JIRA_USERNAME 
-    authtoken:  JIRA_AUTH_TOKEN 
-buildbreaker:
-- activityname: sast
-  status:
-  - new
-  - open
-  overallseverity:
-  - critical
-  categories:
-  - name: cross-site scripting
-    severity: high
-  - name: sql injection
-    severity: high
-- activityname: sca
-  status:
-  - new
-  overallseverity:
-  - critical
-  categories:
-  - name: cve-2015-2119
-    severity: medium
+
+#connectors:
+#  - connector_name: jira
+#    fields:
+#      issuetype: Bug
+#      projectkey: IODEMO
+
+#codedx:
+#  instance_url: http://<codedx_url>/codedx
+#  api_key: <<CODEDX_API_KEY>>
+#  project_id: 3
+
+#buildbreaker:
+#- activityname: codedx
+#  min_risk_score: 100
+#- activityname: sast
+#  status:
+#  - new
+#  - open
+#  overallseverity:
+#  - critical
+#  - high
+#- activityname: sca
+#  status:
+#  - new
+#  - open
+#  overallseverity:
+#  - critical
+#  - high
+#
 # for WF client
 tool_information:
-- tool_name: coverity
-  enabled:  false 
-  fields:
-    file_path:  FILE_PATH 
 - tool_name: polaris
-  enabled:  true 
+  enabled: true
   fields:
-    project_name:  POLARIS_PROJECT_NAME 
-    instance_url:  POLARIS_SERVER_URL 
-    auth_token:  POLARIS_ACCESS_TOKEN 
+    project_name: sigiodemo/insecure-bank
 - tool_name: blackduck
-  enabled:  true 
+  enabled: true
   fields:
-    project_name:  BLACKDUCK_PROJECT_NAME 
-    instance_url:  BLACKDUCK_SERVER_URL 
-    auth_token:  BLACKDUCK_ACCESS_TOKEN 
+    project_name: sigiodemo-insecure-bank
