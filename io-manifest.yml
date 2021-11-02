@@ -66,4 +66,4 @@ tool_information:
 - tool_name: blackduck
   enabled: true
   fields:
-    project_name: sigiodemo-insecure-bank
+    project_name: sigiodemo-insecure-bank:1.0
