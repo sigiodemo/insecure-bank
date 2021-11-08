@@ -34,10 +34,10 @@ security:
 #      issuetype: Bug
 #      projectkey: IODEMO
 
-#codedx:
-#  instance_url: http://<codedx_url>/codedx
-#  api_key: <<CODEDX_API_KEY>>
-#  project_id: 3
+codedx:
+  instance_url: https://testing.codedx.synopsys.com/codedx
+  api_key: <<CODEDX_API_KEY>>
+  project_id: 25
 
 #buildbreaker:
 #- activityname: codedx
