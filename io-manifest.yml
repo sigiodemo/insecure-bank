@@ -37,7 +37,7 @@ security:
 codedx:
   instance_url: https://testing.codedx.synopsys.com/codedx
   api_key: <<CODEDX_API_KEY>>
-  project_id: 25
+  project_id: 2
 
 #buildbreaker:
 #- activityname: codedx
