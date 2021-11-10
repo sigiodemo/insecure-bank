@@ -39,9 +39,9 @@ codedx:
   api_key: <<CODEDX_API_KEY>>
   project_id: 2
 
-#buildbreaker:
-#- activityname: codedx
-#  min_risk_score: 100
+buildbreaker:
+- activityname: codedx
+  min_risk_score: 100
 #- activityname: sast
 #  status:
 #  - new
