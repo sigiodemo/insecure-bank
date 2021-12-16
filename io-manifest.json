@@ -44,6 +44,11 @@
          }
       }
    },
+   "codedx": {
+      "instance_url": "<<CODEDX_SERVER_URL>>",
+      "api_key": "<<CODEDX_API_KEY>>",
+      "project_id": "<<CODEDX_PROJECT_ID>>"
+   },
    "buildbreaker": [
       {
          "activityname": "sast",
