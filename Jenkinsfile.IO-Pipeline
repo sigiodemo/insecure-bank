@@ -9,7 +9,7 @@ pipeline {
     IO_ACCESS_TOKEN = credentials('IO-AUTH-TOKEN')
     GTIHUB_ACCESS_TOKEN = credentials('Github-AuthToken')
     CODEDX_ACCESS_TOKEN = credentials('CODEDX_API_KEY')
-    CODEDX_PROJECT_ID = 5
+    CODEDX_PROJECT_ID = 2
     IS_SAST_ENABLED = "false"
     IS_SCA_ENABLED = "false"
     IS_DAST_ENABLED = "false"
@@ -115,7 +115,8 @@ pipeline {
       steps {
         echo "Stage - Blackduck"
         sh '''
-          IS_SCA_ENABLED=$(jq -r '.security.activities.sca.enabled' io-presciption.json)
+          IS_SCA_ENABLED=false
+          #IS_SCA_ENABLED=$(jq -r '.security.activities.sca.enabled' io-presciption.json)
           echo "IS_SCA_ENABLED = ${IS_SCA_ENABLED}"
           if [ ${IS_SCA_ENABLED} = "true" ]; then
             echo "Running Blackduck based on IO Precription"
