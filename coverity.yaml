@@ -1,3 +1,5 @@
 capture:
   files:
     exclude-regex: '.*\/dropzone\/.*'
+analyze:
+  cov-analyze-args: [--tu-pattern, '!file(".*\/dropzone\/.*")']
